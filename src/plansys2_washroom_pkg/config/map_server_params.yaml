@@ -1,0 +1,4 @@
+/map_server:
+  ros__parameters:
+    yaml_filename: "/home/manas/plansys2_tb3_ws_new/src/plansys2_washroom_pkg/maps/my_map.yaml"
+    use_sim_time: true
