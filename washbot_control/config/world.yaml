@@ -1,0 +1,39 @@
+# WashBot world model — the semantic layer on top of the navigation map.
+#
+# This file binds PDDL location symbols to metric poses on the map
+# (maps/washroom_world.yaml in washbot_bringup) and declares which passages
+# the robot may take. Every pose below has been checked to lie in free space,
+# and every edge is a straight, obstacle-free segment, so the same file
+# drives the real Nav2 stack, the simulated server, and the documentation
+# figures.
+#
+# Fields per location:
+#   x, y, yaw        pose in the map frame (metres, radians)
+#   dirty            true if the fixture needs cleaning at mission start
+#   deep_dirty       true for fixtures needing the longer deep_clean routine
+#                    (temporal domain; treated as dirty in STRIPS mode)
+#   clean_duration   seconds of simulated cleaning work
+
+world:
+  frame_id: map
+  robot_name: washbot
+  start: dock
+  charger: dock
+  nominal_speed: 0.25   # m/s — used for travel-time estimates in temporal mode
+
+  locations:
+    dock:    {x: -2.05, y: -0.55, yaw: 0.0}
+    hall:    {x: -0.55, y: -0.55, yaw: 0.0}
+    basin:   {x: -0.55, y: 1.80, yaw: 1.57, dirty: true, clean_duration: 10.0}
+    commode: {x: 1.80, y: -0.55, yaw: 0.0, dirty: true, clean_duration: 12.0}
+    shower:  {x: 1.80, y: 1.20, yaw: 0.78, deep_dirty: true, clean_duration: 8.0}
+
+  # Two-way passages (each entry is expanded to both directions).
+  # The loop hall -> basin -> shower -> commode -> hall matters: it gives the
+  # mission a detour when one passage is blocked at execution time.
+  edges:
+    - [dock, hall]
+    - [hall, basin]
+    - [hall, commode]
+    - [basin, shower]
+    - [commode, shower]

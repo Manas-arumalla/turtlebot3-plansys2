@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  # The planning core and mission engine are pure Python: lint and test them
+  # fast, on every push, with no ROS installation.
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+      - name: Lint
+        run: python -m flake8 washbot_planning washbot_control washbot_bringup
+      - name: Unit tests
+        run: python -m pytest washbot_planning/test washbot_control/test -v
+      - name: Smoke-test the CLI
+        run: |
+          cd washbot_planning
+          python -m washbot_planning.cli solve \
+            --domain domain_strips.pddl --problem washroom_small.pddl \
+            --backend internal-astar --validate
+          python -m washbot_planning.cli gen-problem --rooms 4 --out /tmp/gen.pddl
+          python -m washbot_planning.cli solve \
+            --domain domain_strips.pddl --problem /tmp/gen.pddl --validate
+
+  # Full workspace build + tests inside a ROS 2 Jazzy container.
+  ros:
+    runs-on: ubuntu-latest
+    container: ros:jazzy
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: src/turtlebot3-plansys2
+      - name: Install dependencies
+        run: |
+          apt-get update
+          rosdep update --rosdistro jazzy || rosdep init && rosdep update --rosdistro jazzy
+          rosdep install --from-paths src --ignore-src -y --rosdistro jazzy \
+            --skip-keys "plansys2_msgs popf"
+          apt-get install -y python3-pytest
+      - name: Build
+        shell: bash
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          colcon build --symlink-install
+      - name: Test
+        shell: bash
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          source install/setup.bash
+          python3 -m pytest src/turtlebot3-plansys2/washbot_planning/test \
+                            src/turtlebot3-plansys2/washbot_control/test -v

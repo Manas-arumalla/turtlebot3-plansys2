@@ -1,0 +1,23 @@
+# Default parameters for the mission controller.
+# world_file is injected by the launch files (it depends on the install path).
+
+mission_controller:
+  ros__parameters:
+    # Which fixtures to clean; ['all'] means every location marked dirty
+    # (or deep_dirty) in the world file.
+    goals: ['all']
+
+    # 'strips' plans order only; 'temporal' adds durations, battery and
+    # recharging (requires POPF or a running PlanSys2 stack).
+    domain_mode: strips
+
+    # auto | internal-gbfs | internal-astar | popf | plansys2
+    # 'auto' prefers POPF when installed and falls back to the bundled search.
+    planner_backend: auto
+
+    planning_timeout: 30.0
+    max_replans: 5
+    max_step_retries: 1
+    action_timeout: 180.0
+    autostart: true
+    report_dir: '~/.washbot/reports'

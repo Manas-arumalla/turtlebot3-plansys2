@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>washbot_control</name>
+  <version>1.0.0</version>
+  <description>
+    Execution layer for WashBot missions: a YAML-backed world model, a
+    replanning mission engine, pluggable PDDL-action handlers (Nav2
+    navigation, timed cleaning, recharging), the mission controller node,
+    and a simulated Nav2 action server with fault injection for testing the
+    full plan-execute-recover loop without a robot.
+  </description>
+  <maintainer email="manasreddyarumalla@gmail.com">Manas Reddy Arumalla</maintainer>
+  <license>Apache-2.0</license>
+
+
+  <depend>rclpy</depend>
+  <depend>washbot_planning</depend>
+  <depend>nav2_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <exec_depend>python3-yaml</exec_depend>
+
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

@@ -1,0 +1,96 @@
+{
+  "state": "succeeded",
+  "goals": [
+    "basin",
+    "commode",
+    "shower"
+  ],
+  "cleaned": [
+    "basin",
+    "commode",
+    "shower"
+  ],
+  "robot_at": "commode",
+  "battery_pct": 73.0,
+  "plan_steps": 7,
+  "steps_executed": 7,
+  "replans": 0,
+  "blocked_edges": [],
+  "abort_reason": "",
+  "events": [
+    {
+      "kind": "plan",
+      "detail": "7 steps via internal-astar: (move washbot dock hall) (move washbot hall basin) (clean washbot basin) (move washbot basin shower) (clean washbot shower) (move washbot shower commode) (clean washbot commode)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(move washbot dock hall)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(move washbot hall basin)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(clean washbot basin)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(move washbot basin shower)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(clean washbot shower)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(move washbot shower commode)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(clean washbot commode)"
+    },
+    {
+      "kind": "success",
+      "detail": "all 3 goals cleaned"
+    }
+  ],
+  "elapsed_seconds": 82.82,
+  "step_timings": [
+    {
+      "step": "(move washbot dock hall)",
+      "success": true,
+      "seconds": 7.53
+    },
+    {
+      "step": "(move washbot hall basin)",
+      "success": true,
+      "seconds": 12.56
+    },
+    {
+      "step": "(clean washbot basin)",
+      "success": true,
+      "seconds": 10.0
+    },
+    {
+      "step": "(move washbot basin shower)",
+      "success": true,
+      "seconds": 20.46
+    },
+    {
+      "step": "(clean washbot shower)",
+      "success": true,
+      "seconds": 8.01
+    },
+    {
+      "step": "(move washbot shower commode)",
+      "success": true,
+      "seconds": 12.25
+    },
+    {
+      "step": "(clean washbot commode)",
+      "success": true,
+      "seconds": 12.0
+    }
+  ]
+}

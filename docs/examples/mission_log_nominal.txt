@@ -1,0 +1,22 @@
+[1783017775.055516063] [mission_controller]: mission start: clean [basin, commode] from "dock" (mode=strips, backend=internal-astar)
+[1783017775.057876936] [mission_controller]: plan (internal-astar, 6 steps):
+[1783017775.058187924] [mission_controller]:     1. (move washbot dock hall)
+[1783017775.058402526] [mission_controller]:     2. (move washbot hall basin)
+[1783017775.058611538] [mission_controller]:     3. (clean washbot basin)
+[1783017775.058811473] [mission_controller]:     4. (move washbot basin hall)
+[1783017775.059004476] [mission_controller]:     5. (move washbot hall commode)
+[1783017775.059199062] [mission_controller]:     6. (clean washbot commode)
+[1783017775.059406370] [mission_controller]: step 1/6: (move washbot dock hall)
+[1783017775.060319018] [mission_controller]: navigating to "hall" (-0.55, -0.55, yaw 0.00)
+[1783017779.287807443] [mission_controller]: step 2/6: (move washbot hall basin)
+[1783017779.288997728] [mission_controller]: navigating to "basin" (-0.55, 1.80, yaw 1.57)
+[1783017786.020183221] [mission_controller]: step 3/6: (clean washbot basin)
+[1783017786.020990636] [mission_controller]: cleaning "basin" for 10s
+[1783017796.024706018] [mission_controller]: step 4/6: (move washbot basin hall)
+[1783017796.026521978] [mission_controller]: navigating to "hall" (-0.55, -0.55, yaw 0.00)
+[1783017802.817978588] [mission_controller]: step 5/6: (move washbot hall commode)
+[1783017802.818654434] [mission_controller]: navigating to "commode" (1.80, -0.55, yaw 0.00)
+[1783017809.540213578] [mission_controller]: step 6/6: (clean washbot commode)
+[1783017809.540700449] [mission_controller]: cleaning "commode" for 12s
+[1783017821.542254015] [mission_controller]: mission SUCCEEDED in 46.5s — cleaned: basin, commode (replans: 0, battery: 77%)
+[1783017821.545166144] [mission_controller]: mission report written to /home/manas-reddy/.washbot/reports/mission_20260703_001341.json

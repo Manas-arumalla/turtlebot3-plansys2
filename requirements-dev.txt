@@ -1,0 +1,6 @@
+# Development / CI dependencies for the pure-Python layers.
+# (Runtime ROS dependencies are declared in each package.xml.)
+pyyaml>=6.0
+pytest>=7.0
+flake8>=6.0
+matplotlib>=3.7   # benchmark plots and world/trajectory figures

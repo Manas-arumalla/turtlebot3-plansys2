@@ -1,0 +1,123 @@
+{
+  "state": "succeeded",
+  "goals": [
+    "basin",
+    "commode"
+  ],
+  "cleaned": [
+    "basin",
+    "commode"
+  ],
+  "robot_at": "commode",
+  "battery_pct": 70.9,
+  "plan_steps": 4,
+  "steps_executed": 4,
+  "replans": 1,
+  "blocked_edges": [
+    "commode->hall",
+    "hall->commode"
+  ],
+  "abort_reason": "",
+  "events": [
+    {
+      "kind": "plan",
+      "detail": "6 steps via internal-astar: (move washbot dock hall) (move washbot hall basin) (clean washbot basin) (move washbot basin hall) (move washbot hall commode) (clean washbot commode)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(move washbot dock hall)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(move washbot hall basin)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(clean washbot basin)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(move washbot basin hall)"
+    },
+    {
+      "kind": "step_failed",
+      "detail": "(move washbot hall commode): navigation aborted (0.95 m remaining)"
+    },
+    {
+      "kind": "replan",
+      "detail": "blocked edge hall -> commode"
+    },
+    {
+      "kind": "replan",
+      "detail": "4 steps via internal-astar: (move washbot hall basin) (move washbot basin shower) (move washbot shower commode) (clean washbot commode)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(move washbot hall basin)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(move washbot basin shower)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(move washbot shower commode)"
+    },
+    {
+      "kind": "step_ok",
+      "detail": "(clean washbot commode)"
+    },
+    {
+      "kind": "success",
+      "detail": "all 2 goals cleaned"
+    }
+  ],
+  "elapsed_seconds": 63.85,
+  "step_timings": [
+    {
+      "step": "(move washbot dock hall)",
+      "success": true,
+      "seconds": 4.25
+    },
+    {
+      "step": "(move washbot hall basin)",
+      "success": true,
+      "seconds": 6.72
+    },
+    {
+      "step": "(clean washbot basin)",
+      "success": true,
+      "seconds": 10.0
+    },
+    {
+      "step": "(move washbot basin hall)",
+      "success": true,
+      "seconds": 6.8
+    },
+    {
+      "step": "(move washbot hall commode)",
+      "success": false,
+      "seconds": 4.16
+    },
+    {
+      "step": "(move washbot hall basin)",
+      "success": true,
+      "seconds": 7.91
+    },
+    {
+      "step": "(move washbot basin shower)",
+      "success": true,
+      "seconds": 6.97
+    },
+    {
+      "step": "(move washbot shower commode)",
+      "success": true,
+      "seconds": 5.01
+    },
+    {
+      "step": "(clean washbot commode)",
+      "success": true,
+      "seconds": 12.0
+    }
+  ]
+}

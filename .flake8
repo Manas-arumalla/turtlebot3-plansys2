@@ -1,0 +1,17 @@
+[flake8]
+# Classic correctness + style checks (pyflakes, pycodestyle, mccabe).
+# Docstring/import-order/quote plugins that some environments preload are
+# intentionally not selected; this file is the single source of truth.
+select = E,W,F,C9
+# W503 contradicts W504; PEP 8 now prefers breaking before binary operators.
+ignore = W503
+max-line-length = 99
+# The PDDL parser and marker builder are naturally branchy; they are kept as
+# single readable functions rather than split for the metric's sake.
+max-complexity = 18
+exclude =
+    .git,
+    __pycache__,
+    build,
+    install,
+    log

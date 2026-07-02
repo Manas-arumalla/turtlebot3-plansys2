@@ -1,0 +1,29 @@
+[initial_pose_publisher-9]: process started with pid [139402]
+[initial_pose_publisher-9] [1783022237.361770198] [initial_pose_publisher]: initial pose published: (-2.05, -0.55, yaw 0.00)
+[initial_pose_publisher-9]: process has finished cleanly [pid 139402]
+[mission_controller-10]: process started with pid [139539]
+[mission_controller-10] [1783022241.102122357] [mission_controller]: mission start: clean [basin, commode, shower] from "dock" (mode=strips, backend=auto)
+[mission_controller-10] [1783022241.104116789] [mission_controller]: plan (internal-astar, 7 steps):
+[mission_controller-10] [1783022241.104377104] [mission_controller]:     1. (move washbot dock hall)
+[mission_controller-10] [1783022241.104585422] [mission_controller]:     2. (move washbot hall basin)
+[mission_controller-10] [1783022241.104780525] [mission_controller]:     3. (clean washbot basin)
+[mission_controller-10] [1783022241.104982992] [mission_controller]:     4. (move washbot basin shower)
+[mission_controller-10] [1783022241.105201939] [mission_controller]:     5. (clean washbot shower)
+[mission_controller-10] [1783022241.105439732] [mission_controller]:     6. (move washbot shower commode)
+[mission_controller-10] [1783022241.105637850] [mission_controller]:     7. (clean washbot commode)
+[mission_controller-10] [1783022241.105837121] [mission_controller]: step 1/7: (move washbot dock hall)
+[mission_controller-10] [1783022241.583626563] [mission_controller]: navigating to "hall" (-0.55, -0.55, yaw 0.00)
+[mission_controller-10] [1783022248.635909838] [mission_controller]: step 2/7: (move washbot hall basin)
+[mission_controller-10] [1783022248.636752837] [mission_controller]: navigating to "basin" (-0.55, 1.80, yaw 1.57)
+[mission_controller-10] [1783022261.198634364] [mission_controller]: step 3/7: (clean washbot basin)
+[mission_controller-10] [1783022261.199305834] [mission_controller]: cleaning "basin" for 10s
+[mission_controller-10] [1783022271.199962538] [mission_controller]: step 4/7: (move washbot basin shower)
+[mission_controller-10] [1783022271.200552796] [mission_controller]: navigating to "shower" (1.80, 1.20, yaw 0.78)
+[mission_controller-10] [1783022291.662644461] [mission_controller]: step 5/7: (clean washbot shower)
+[mission_controller-10] [1783022291.662974465] [mission_controller]: cleaning "shower" for 8s
+[mission_controller-10] [1783022299.670372376] [mission_controller]: step 6/7: (move washbot shower commode)
+[mission_controller-10] [1783022299.671232877] [mission_controller]: navigating to "commode" (1.80, -0.55, yaw 0.00)
+[mission_controller-10] [1783022311.922886501] [mission_controller]: step 7/7: (clean washbot commode)
+[mission_controller-10] [1783022311.923249266] [mission_controller]: cleaning "commode" for 12s
+[mission_controller-10] [1783022323.926237795] [mission_controller]: mission SUCCEEDED in 82.8s — cleaned: basin, commode, shower (replans: 0, battery: 73%)
+[mission_controller-10] [1783022323.926930674] [mission_controller]: mission report written to /home/manas-reddy/.washbot/reports/mission_20260703_012843.json
